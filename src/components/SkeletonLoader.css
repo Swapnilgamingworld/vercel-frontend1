@@ -1,0 +1,97 @@
+.skeleton-line,
+.skeleton-card,
+.skeleton-avatar,
+.skeleton-button,
+.skeleton-text {
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    var(--panel-strong) 50%,
+    var(--border) 100%
+  );
+  background-size: 200% 100%;
+  animation: loading 2s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.skeleton-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.skeleton-line {
+  height: 16px;
+  margin-bottom: 12px;
+}
+
+.skeleton-short {
+  width: 60%;
+}
+
+.skeleton-medium {
+  width: 80%;
+}
+
+.skeleton-long {
+  width: 100%;
+}
+
+.skeleton-text {
+  height: 14px;
+  display: block;
+}
+
+.skeleton-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.skeleton-button {
+  height: 36px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.skeleton-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skeleton-table-row {
+  animation: fadeIn 300ms ease-out;
+}
+
+.skeleton-table-row td {
+  padding: 16px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line,
+  .skeleton-card,
+  .skeleton-avatar,
+  .skeleton-button,
+  .skeleton-text {
+    animation: none;
+    background: var(--border);
+  }
+}

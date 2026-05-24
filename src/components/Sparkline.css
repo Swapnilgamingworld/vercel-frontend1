@@ -1,0 +1,7 @@
+.sparkline {
+  display: inline-block;
+}
+
+.sparkline polyline {
+  transition: stroke-dashoffset 300ms ease, stroke 300ms ease;
+}

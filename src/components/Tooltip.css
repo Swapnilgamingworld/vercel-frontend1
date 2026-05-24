@@ -1,0 +1,127 @@
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-trigger {
+  cursor: help;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tooltip {
+  position: absolute;
+  background: var(--text);
+  color: var(--bg);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 1000;
+  animation: tooltipFadeIn 200ms ease-out;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.2);
+}
+
+.tooltip-content {
+  font-weight: 500;
+}
+
+.tooltip-top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+}
+
+.tooltip-bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+}
+
+.tooltip-left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+}
+
+.tooltip-right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* Arrow */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--text);
+  transform: rotate(45deg);
+}
+
+.tooltip-top::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  margin-top: -4px;
+}
+
+.tooltip-bottom::before {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  margin-bottom: -4px;
+}
+
+.tooltip-left::before {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  margin-left: -4px;
+}
+
+.tooltip-right::before {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  margin-right: -4px;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.dark-mode .tooltip {
+  background: var(--panel-strong);
+  color: var(--text);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .tooltip::before {
+  background: var(--panel-strong);
+}
+
+@media (max-width: 680px) {
+  .tooltip {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .tooltip-top,
+  .tooltip-bottom {
+    white-space: normal;
+    max-width: 200px;
+  }
+}

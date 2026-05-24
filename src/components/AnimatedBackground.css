@@ -1,0 +1,230 @@
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animated Gradients */
+.animated-bg-gradient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: float 15s ease-in-out infinite;
+}
+
+.gradient-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--primary), transparent);
+  top: -10%;
+  left: -5%;
+  animation: float 20s ease-in-out infinite;
+}
+
+.gradient-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--info), transparent);
+  top: 20%;
+  right: 5%;
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+.gradient-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--success), transparent);
+  bottom: 10%;
+  left: 30%;
+  animation: float 22s ease-in-out infinite;
+}
+
+/* Floating Particles */
+.floating-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary), transparent);
+  opacity: 0.6;
+  animation: float-particle 8s ease-in-out infinite;
+}
+
+.particle-1 {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 15%;
+  animation: float-particle 8s ease-in-out infinite;
+}
+
+.particle-2 {
+  width: 60px;
+  height: 60px;
+  top: 30%;
+  right: 10%;
+  background: radial-gradient(circle, var(--info), transparent);
+  animation: float-particle 12s ease-in-out infinite reverse;
+}
+
+.particle-3 {
+  width: 30px;
+  height: 30px;
+  bottom: 20%;
+  left: 25%;
+  background: radial-gradient(circle, var(--success), transparent);
+  animation: float-particle 10s ease-in-out infinite;
+}
+
+.particle-4 {
+  width: 50px;
+  height: 50px;
+  top: 60%;
+  right: 20%;
+  background: radial-gradient(circle, var(--warning), transparent);
+  opacity: 0.4;
+  animation: float-particle 14s ease-in-out infinite reverse;
+}
+
+.particle-5 {
+  width: 35px;
+  height: 35px;
+  bottom: 30%;
+  right: 15%;
+  background: radial-gradient(circle, var(--primary), transparent);
+  animation: float-particle 11s ease-in-out infinite;
+}
+
+/* Wave Animation */
+.animated-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  opacity: 0.4;
+  animation: wave 15s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30px, -30px);
+  }
+  50% {
+    transform: translate(0, -60px);
+  }
+  75% {
+    transform: translate(-30px, -30px);
+  }
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(20px, -20px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(0, -40px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-20px, -20px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+}
+
+/* Dark mode adjustments */
+html.dark-mode .animated-bg-gradient {
+  opacity: 0.2;
+}
+
+html.dark-mode .floating-particle {
+  opacity: 0.4;
+}
+
+html.dark-mode .animated-waves {
+  opacity: 0.15;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .animated-bg-gradient {
+    filter: blur(50px);
+  }
+
+  .gradient-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .gradient-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .gradient-3 {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 680px) {
+  .animated-bg-gradient {
+    filter: blur(40px);
+    opacity: 0.2;
+  }
+
+  .gradient-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .gradient-2 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .gradient-3 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .floating-particle {
+    opacity: 0.3;
+  }
+
+  .animated-waves {
+    opacity: 0.08;
+    height: 80px;
+  }
+}
+
+/* Performance optimization - disable animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .animated-bg-gradient,
+  .floating-particle,
+  .animated-waves {
+    animation: none;
+  }
+}
